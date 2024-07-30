@@ -1,9 +1,10 @@
 import Link from "next/link";
+import React from "react";
 import { sort } from "fast-sort";
 
 interface User {
-  name: string;
   id: number;
+  name: string;
   email: string;
 }
 
@@ -12,7 +13,7 @@ interface Props {
 }
 
 const UserTable = async ({ sortOrder }: Props) => {
-  const res = await fetch("https://jsonplaceholder.typicode.com/xusers", {
+  const res = await fetch("https://jsonplaceholder.typicode.com/users", {
     cache: "no-store",
   });
   const users: User[] = await res.json();
